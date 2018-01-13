@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<title> 
-		SORTIR!-Edyta
+		SORTIR!
 	</title>
 
 </head>
@@ -42,48 +42,52 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Textarea</label>
+          <textarea id="address-input" class="materialize-textarea"></textarea>
+          <!-- label does not disappear when text input by user; replace with placeholder? -->
+          <label for="address-placeholder">Address</label>
         </div>
       </div>
     </form>
   </div>
-	<!--ZIP Search-->
+
+	<!--Date Search-->
    <nav>
     <div class="nav-wrapper">
       <form>
+        <!-- change to drop-down location -->
         <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <input id="date-input" type="search" required>
+          <label class="label-icon" for="date"><i class="material-icons">date</i></label>
           <i class="material-icons">close</i>
         </div>
       </form>
     </div>
   </nav>
   <br>
-	<!--Date Search-->
+
+	<!--Category Search-->
    <nav>
     <div class="nav-wrapper">
       <form>
+        <!-- change to drop-down location -->
         <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <input id="category-input" type="search" required>
+          <label class="label-icon" for="category"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
       </form>
     </div>
   </nav>
-	<!--Event Type Search-->
+
 
 <!--Table will populate here-->
- <table class="striped">
+ <table class="striped" id="API-events">
         <thead>
           <tr>
+              <th>Category</th>
+              <th>Title</th>
               <th>Date</th>
-              <th>Time</th>
               <th>Location</th>
-              <th>Distance</th>
-              <th>Price</th>
           </tr>
         </thead>
 
