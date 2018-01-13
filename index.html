@@ -10,6 +10,9 @@
     <!--Link to googlefonts-->
 
 	<!-- Materialize CSS -->
+	 <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 
     <!--Link to CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -19,24 +22,107 @@
 	</title>
 
 </head>
+<body>
+
 <!--NAVBAR GOES HERE-->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center">SORTIR</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
 <!--FORM GOES HERE-->
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>
+    </form>
+  </div>
 	<!--ZIP Search-->
+   <nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <br>
 	<!--Date Search-->
+   <nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
 	<!--Event Type Search-->
 
 <!--Table will populate here-->
+ <table class="striped">
+        <thead>
+          <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Distance</th>
+              <th>Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+  </table>
 
 <!--GoogleMap will display here-->
 
-<!--Uber fare estimate and booking tool will display here-->
+<!--Lyft fare estimate and booking tool will display here-->
+<div id="lyft-web-button-parent"></div>
 
 <!--Footer-->
-	<footer> &copy; Copyright 2017 YDudes</footer>
-
-<body>
-	
+	 <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+              </div>
+              <div class="col l4 offset-l2 s12">
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>	
 </body>
 
 </html>
