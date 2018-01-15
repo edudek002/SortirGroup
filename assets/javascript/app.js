@@ -28,17 +28,22 @@
 
 //Use variable in Lyft API and pull AJAX request
 //=========================
+var eventLat = 44.9735
+var eventLong = 93.2575
+// var pickUp = 
+
 function displayLyft(){
+	console.log("Display Lyft Function running");
   var OPTIONS = {
-    scriptSrc: 'lyftWebButton.min.js',
+    scriptSrc: 'assets/lyft/dist/lyftWebButton.min.js',
     namespace: '',
     clientId: 'ttOsHDUkxRyS',
-    clientToken: '',
+    clientToken: 'mTjSJFlEwRRmoMVo/loVl70RVsu/m2fkSlb6aeFp94q9ovNq9FRkTttsluEbv6Fv35Q2pSH41W/MjK8GG8iutze2x5MMB8+YPHXHr9Yief/gzJQN8kdXcHA=',
     location: {
       pickup: {}, 
       destination: {
-        latitude: '',
-        longitude: '',
+        latitude: eventLat,
+        longitude: eventLong,
       },
     },
     parentElement: document.getElementById('lyft-web-button-parent'),
@@ -60,9 +65,11 @@ function displayLyft(){
   }, c.src = t.scriptSrc, a.insertBefore(c, a.childNodes[0])
   }).call(this, OPTIONS);
 
+ };
+
 //Display fare estimate to page
 //=======================
-
+displayLyft();
 
 
 
