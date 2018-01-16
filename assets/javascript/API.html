@@ -29,30 +29,6 @@
       <input id="submit" type="submit" value="Event Search">
     </form>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      // click function for AJAX Call
-      $("#submit").on("click", function(event) {
-        // prevent event default behavior
-        event.preventDefault();
-        // store search input in variable
-        var location = $("#location-input").val();
-        // construct our URL
-        var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location;
-
-        // queryURL using $ajax
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).done(function(response) {
-          console.log(JSON.parse(response))
-          // $("#event-view").text(JSON.parse(response));
-        });
-
-        // -----------------------------------------------------------------------
-
-      });
-    </script>
   </div>
 </body>
 
