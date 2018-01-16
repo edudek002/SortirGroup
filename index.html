@@ -31,7 +31,7 @@
         <!-- Admin Contact Link -->
         <li><a href="#">Contact Us</a></li>
       </ul>
-      <!-- Unnecessary Menu? -->
+      <!-- Unnecessary Drop-down Menu? -->
       <!-- <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Navbar Link</a></li>
       </ul>
@@ -39,6 +39,7 @@
     </div>
   </nav>
 
+  <!-- large banner #1 with image -->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -48,234 +49,137 @@
         <div class="row center">
           <h5 class="header col s12 red-text light">Get Out and Roll out!!!</h5>
         </div>
-        <!-- Unnecessary Button? -->
-        <!-- <div class="row center">
-          <div class="btn-large waves-effect waves-light teal lighten-1">Button</div>
-        </div>
-        <br><br> -->
-
       </div>
     </div>
+    <!-- banner image -->
     <div class="parallax"><img src="assets/images/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
-
+  
+  <!--API Search Form-->
   <div class="container">
     <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <!-- <div class="col s12 m4"> -->
-          <!-- <div class="icon-block"> -->
-            <!-- <h2 class="center brown-text"><i class="material-icons">event</i></h2> -->
-            <!--FORM GOES HERE-->
-              <div class="row">
-                  <form class="col s12 m4">
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Enter City</label>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <!--ZIP Search-->
-                 <nav>
-                  <div class="nav-wrapper">
-                    <form>
-                      <div class="input-field">
-                        <input id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                      </div>
-                    </form>
-                  </div>
-                </nav>
-                <br>
-          <!--Date Search-->
-          <input type="text" class="datepicker">
-          
-           <nav>
-            <div class="nav-wrapper">
-              <form>
-                <div class="input-field">
-                  <input id="search" type="search" required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>
-            </div>
-          </nav>
-          <!-- </div> -->
-        <!-- </div> -->
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">restaurant</i></h2>
-            <h5 class="center">FORM HERE</h5>
-              
-            <p class="light">table here </p>
+      <form class="col s12 m4">
+        <!-- City Search Input -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">Enter City</i></label>
+            <i class="material-icons">close</i>
           </div>
         </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">theaters</i></h2>
-            <h5 class="center">Data</h5>
-
-            <p class="light">populate data here</p>
+        <!-- Date Selector -->
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea2" class="materialize-textarea"></textarea>
+            <label for="textarea2">Select Date</label>
           </div>
         </div>
-      </div>
-
+        <!-- Category Selector Drop-down Menu -->
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea3" class="materialize-textarea"></textarea>
+            <label for="textarea3">Select a Category</label>
+          </div>
+        </div>
+        <!-- Submit AJAX Button -->
+        <div class="row">
+          <div class="btn-large waves-effect waves-light teal lighten-1" id="submit" type="submit" value="Event Search">Submit</div>
+          </div>
+      </form>
     </div>
-  </div>
+  </div><!-- Div closes Search Form container-->
+  <br>
 
-
+  <!-- large banner #2 with image -->
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light"></h5>
+          <h5 class="header col s12 light">HEADING</h5>
         </div>
       </div>
     </div>
     <div class="parallax"><img src="assets/images/background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
+  <!-- API results table -->
   <div class="container">
     <div class="section">
-
       <div class="row">
         <div class="col s12 center">
-          <!--Table will populate here-->
-                 <table class="striped">
-                        <thead>
-                          <tr>
-                              <th>Date</th>
-                              <th>Time</th>
-                              <th>Location</th>
-                              <th>Distance</th>
-                              <th>Price</th>
-                          </tr>
-                        </thead>
+         <table class="striped">
+                <thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Location</th>
+                      <th>Distance</th>
+                      <th>Price</th>
+                  </tr>
+                </thead>
 
-                        <tbody>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        </tbody>
-                  </table>
-
-          <p class="left-align light">More Data here</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">here</h5>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+          </table>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/background3.jpg" alt="Unsplashed background img 3"></div>
-  </div>
-
-  <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Events info</h5>
-          <p class="grey-text text-lighten-4">Data here</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">more data??</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-           
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-	<!--Event Type Search-->
-
-<!--Table will populate here-->
- <table class="striped">
-        <thead>
-          <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Location</th>
-              <th>Distance</th>
-              <th>Price</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-  </table>
+  </div><!-- Div closes API result table -->
+  <br>
 
 <!--GoogleMap will display here-->
 
 <!--Lyft fare estimate and booking tool will display here-->
 <div id="lyft-web-button-parent"></div>
 
-<!--Footer-->
-  <footer class="page-footer">
+<!-- large banner #3 with image -->
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-        </div>
-        <div class="col l4 offset-l2 s12">
-        </div>
+      <div class="row center">
+        <h5 class="header col s12 light">HEADING</h5>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-          © 2018 Copyright YDudes
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
+  </div>
+  <div class="parallax"><img src="assets/images/background3.jpg" alt="Unsplashed background img 3"></div>
+</div>
+
+<!--Footer-->
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+      </div>
+      <div class="col l4 offset-l2 s12">
+      </div>
     </div>
-  </footer>	
-  <!--Materialized Ajax-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <!-- Jquery AJAX button  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--GoogleAPI J-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!--Link to Javascript-->
-  <script src="assets/javascript/app.js"></script>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+        © 2018 Copyright YDudes
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+  </div>
+</footer>
+
+<!--Materialized Ajax-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<!-- Jquery AJAX button  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--GoogleAPI J-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Link to Javascript-->
+<script src="assets/javascript/app.js"></script>
 
 </body>
 </html>
