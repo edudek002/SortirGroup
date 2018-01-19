@@ -45,7 +45,18 @@
           url: queryURL,
           method: "GET"
         }).done(function(response) {
-          $("#event-view").text(JSON.stringify(response));
+
+          for (var i=0; i<10; i++){
+          console.log(JSON.parse(response));
+
+          console.log(JSON.parse(response).events.event[i].latitude);
+
+          console.log(JSON.parse(response).events.event[i].longitude);
+
+
+            }
+
+          var mapLatitude = JSON.parse(response).events.event[0].latitude;
         });
 
         // -----------------------------------------------------------------------
