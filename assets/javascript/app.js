@@ -6,23 +6,23 @@
 
 //Use variables in Eventful API and pull AJAX request for nearby events
 
-// click function for AJAX Call
-$("#submit").on("click", function(event) {
-  // prevent event default behavior
-  event.preventDefault();
-  // store search input in variable
-  var location = $("#location-input").val();
-  // construct our URL
-  var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location;
+// // click function for AJAX Call
+// $("#submit").on("click", function(event) {
+//   // prevent event default behavior
+//   event.preventDefault();
+//   // store search input in variable
+//   var location = $("#location-input").val();
+//   // construct our URL
+//   var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location;
 
-  // queryURL using $ajax
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).done(function(response) {
-    console.log(JSON.parse(response))
-    // $("#event-view").text(JSON.parse(response));
-  });
+//   // queryURL using $ajax
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET"
+//   }).done(function(response) {
+//     console.log(JSON.parse(response))
+//     // $("#event-view").text(JSON.parse(response));
+//   });
 
 //=========================
 
@@ -48,8 +48,9 @@ $("#submit").on("click", function(event) {
 //Use variable in Lyft API and pull AJAX request
 //=========================
 var eventLat = 44.9735
-var eventLong = 93.2575
-// var pickUp = 
+var eventLong = -93.2575
+var myLat = 44.973990
+var myLong = -93.227729
 
 function displayLyft(){
 	console.log("Display Lyft Function running");
@@ -59,7 +60,10 @@ function displayLyft(){
     clientId: 'ttOsHDUkxRyS',
     clientToken: 'mTjSJFlEwRRmoMVo/loVl70RVsu/m2fkSlb6aeFp94q9ovNq9FRkTttsluEbv6Fv35Q2pSH41W/MjK8GG8iutze2x5MMB8+YPHXHr9Yief/gzJQN8kdXcHA=',
     location: {
-      pickup: {}, 
+      pickup: {
+        latitude: myLat,
+        longitude: myLong,
+      }, 
       destination: {
         latitude: eventLat,
         longitude: eventLong,
