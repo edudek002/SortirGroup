@@ -33,6 +33,10 @@ var infoWindow;
 //AND - Use new variables in GoogleMaps API 
 
 //====================================================
+//Use lodash for error handling
+function parseLodash(str){
+  return _.attempt(JSON.parse.bind(null, str));
+}
 
 // click function for AJAX Call
 $("#find-event").on("click", function(event) {
@@ -71,30 +75,30 @@ $("#find-event").on("click", function(event) {
       
       //Find Longitude and Latitude of the event
 
-      eventLat[i] = JSON.parse(response).events.event[i].latitude;
+      eventLat[i] = parseLodash(response).events.event[i].latitude;
       console.log("Lat of event " + [i+1] + " = " + eventLat[i]);
       eventLat.push(eventLat[i]);
 
-      eventLng[i] = JSON.parse(response).events.event[i].longitude;
+      eventLng[i] = parseLodash(response).events.event[i].longitude;
       console.log("Lng of event " + [i+1] + " = " + eventLng[i]);
       eventLng.push(eventLng[i]);
 
 
       //Print the Date of the the event 
 
-      dateSelector[i] = JSON.parse(response).events.event[i].start_time;
+      dateSelector[i] = parseLodash(response).events.event[i].start_time;
 
       $("#eventDate").text(dateSelector[i]);
 
       //Print URL of the event
 
-      moreInfo[i]= JSON.parse(response).events.event[i].venue_url;
+      moreInfo[i]= parseLodash(response).events.event[i].venue_url;
 
       $("#moreInfo").text(moreInfo[i]);
 
       //Print the Name of the event
 
-      eventName[i]= JSON.parse(response).events.event[i].title;
+      eventName[i]= parseLodash(response).events.event[i].title;
 
       $("#eventName").text(eventName[i]);
 
