@@ -29,7 +29,41 @@
       <input id="submit" type="submit" value="Event Search">
     </form>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // click function for AJAX Call
+      $("#find-event").on("click", function(event) {
+        // prevent event default behavior
+        event.preventDefault();
+        // store search input in variable
+        var location = $("#location-input").val();
+        // construct our URL
+        var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location;
+
+        // queryURL using $ajax
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).done(function(response) {
+
+          for (var i=0; i<10; i++){
+          console.log(JSON.parse(response));
+
+          console.log(JSON.parse(response).events.event[i].latitude);
+
+          console.log(JSON.parse(response).events.event[i].longitude);
+
+
+            }
+
+          var mapLatitude = JSON.parse(response).events.event[0].latitude;
+        });
+
+        // -----------------------------------------------------------------------
+
+      });
+    </script>
   </div>
 </body>
-
 </html>
