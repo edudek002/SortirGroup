@@ -38,6 +38,7 @@
         </div>
         <br><br>
 
+
       </div>
     </div>
     <div class="parallax"><img src="assets/images/background1.jpg" alt="Minneapolis Skyline"></div>
@@ -76,8 +77,40 @@
                   </div>
                 </nav>
                 <br>
+
+<!-- search code -->
+<div id="map"></div>
+
+<div class="container">
+      <div id="event-view"></div>
+      
+        <form id="search-form">
+
+          <label for="event-input">Enter location of the event!</label>
+          <input type="text" id="location-input"><br> 
+
+          <label for="sel1">Enter date of the event</label>
+            <select class="form-control" id="date-input">
+              <option value=Today>Today</option>
+                <option value=ThisWeek>This Week</option>
+                <option value=NextWeek>Next week</option>
+            </select> 
+
+          <input id="find-event" type="submit" value="Event Search">
+        </form>
+
+      <div id="eventDate">Date = </div>
+
+      <div id="eventName">Name = </div>  
+
+      <div id="moreInfo">URL = </div>
+
+    </div>
+
+    <!-- search CODE-->
+
           <!--Date Search-->
-          <input type="text" class="datepicker">
+         <!--  <input type="text" class="datepicker">
           
            <nav>
             <div class="nav-wrapper">
@@ -91,7 +124,7 @@
             </div>
           </nav>
           </div>
-        </div>
+        </div> -->
 
         <div class="col s12 m4">
           <div class="icon-block">
@@ -215,6 +248,8 @@
   <script src="assets/javascript/materialize.js"></script>
   <script src="assets/javascript/init.js"></script>
   <script src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/API.js"></script>
+
 
   </body>
 </html>
