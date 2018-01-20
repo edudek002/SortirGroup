@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Events App</title>
+  <title>Sortir!</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,32 +13,70 @@
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
+      <!-- Sortir Logo #1-->
       <a id="logo-container" href="#" class="brand-logo">Sortir</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Contact Us</a></li>
       </ul>
-
-      <ul id="nav-mobile" class="side-nav">
+      <!-- Unnecessary Drop-down Menu? -->
+      <!-- <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Navbar Link</a></li>
       </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
     </div>
   </nav>
 
+  <!-- large banner #1 with image -->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center white-text text-darken-5">Sorir</h1>
+      <!-- Sortir Logo #2-->
+        <h1 class="header center white-text text-darken-5">Sortir</h1>
         <div class="row center">
           <h5 class="header col s12 light">Get Out and Roll out!!!</h5>
         </div>
-        <div class="row center">
-          <div class="btn-large waves-effect waves-light teal lighten-1">Events dropdown here</div>
-        </div>
+          <!--API Search Form-->
+          <div class="container">
+            <div class="section">
+              <form class="col s12 m4">
+                <!-- City Search Input -->
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons">Enter a City</i></label>
+                    <i class="material-icons">close</i>
+                  </div>
+                </div>
+                <!-- Date Selector -->
+                <div class="row">
+                  <div class="input-field col s12">
+                    <select class= "Drop-down" id= "event-date">
+                      <option value="" disabled selected>Pick a date</option>
+                      <option value="1">Today</option>
+                      <option value="1">Tomorrow</option>
+                    </select>
+                    <label>date-selection</label>
+                  </div>
+                </div>
+                <!-- Category Selector -->
+                <div class="input-field col s12">
+                    <select>
+                      <option value="" disabled selected>Select a category</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                    <label>category-selection</label>
+                </div>
+                <!-- Submit AJAX Button -->
+                <div class="row">
+                  <div class="btn-large waves-effect waves-light teal lighten-1" id="submit" type="submit" value="Event Search">Submit</div>
+                </div>
+              </form>
+            </div>
+          </div><!-- Div closes Search Form container-->
         <br><br>
-
-
       </div>
     </div>
     <div class="parallax"><img src="assets/images/background1.jpg" alt="Minneapolis Skyline"></div>
