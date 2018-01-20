@@ -1,43 +1,180 @@
 //PSUEDOCODE
 //=========================
 
-//Grab search items from forms and save a variables
-//=========================
+//===================EDYTA==========================
 
-//Use variables in Eventful API and pull AJAX request for nearby events
+//Global variables - Edyta
+
+var eventLat=[];
+var eventLng=[];
+var dateSelector=[];
+var moreInfo=[];
+var eventName=[];
+var coords=[];
+var map;
+var latLng;
+var marker;
+var myLat;
+var myLng;
+var infoWindow;
+
+
+//Grab search items from forms and save a variables
+//====================================================
+
+//Use variables in Eventful API 
+
+//AND - Pull AJAX request for nearby events
+
+//AND - Display responses from Eventful in table 
+
+//AND - Save information from table as new variables to use in GoogleMaps API 
+
+//AND - Use new variables in GoogleMaps API 
+
+//====================================================
 
 // click function for AJAX Call
-$("#submit").on("click", function(event) {
+$("#find-event").on("click", function(event) {
+
   // prevent event default behavior
   event.preventDefault();
+
+  //wait x seconds until the data from Ajax loads and then show the map
+
+  setTimeout(initMap, 4000);
+ 
+
   // store search input in variable
   var location = $("#location-input").val();
-  // construct our URL
-  var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location;
+
+  var date = $("#date-input").val();
+
+  //check if the date uploads correctly
+
+  //alert(date);
+
+  // construct our URL using location and date determined by user
+
+  var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location+ "&date="+ date + "&limit=10";
 
   // queryURL using $ajax
+
   $.ajax({
     url: queryURL,
     method: "GET"
   }).done(function(response) {
-    console.log(JSON.parse(response))
-    // $("#event-view").text(JSON.parse(response));
+
+    for (var i=0; i<3; i++){
+
+      console.log(JSON.parse(response));
+      
+      //Find Longitude and Latitude of the event
+
+      eventLat[i] = JSON.parse(response).events.event[i].latitude;
+      console.log("Lat of event " + [i+1] + " = " + eventLat[i]);
+      eventLat.push(eventLat[i]);
+
+      eventLng[i] = JSON.parse(response).events.event[i].longitude;
+      console.log("Lng of event " + [i+1] + " = " + eventLng[i]);
+      eventLng.push(eventLng[i]);
+
+
+      //Print the Date of the the event 
+
+      dateSelector[i] = JSON.parse(response).events.event[i].start_time;
+
+      $("#eventDate").text(dateSelector[i]);
+
+      //Print URL of the event
+
+      moreInfo[i]= JSON.parse(response).events.event[i].venue_url;
+
+      $("#moreInfo").text(moreInfo[i]);
+
+      //Print the Name of the event
+
+      eventName[i]= JSON.parse(response).events.event[i].title;
+
+      $("#eventName").text(eventName[i]);
+
+    }
+
   });
+
+  //print arrays of Lattitude and Longitude
+
+  console.log("Latitude array = " + eventLat);
+  console.log("Longitude array = " + eventLng);
+
 });
 
-//=========================
+//================== Display events on GoogleMap =============================
 
-//Display responses from Eventful in table
-//=========================
 
-//Save information from table as new variables to use in GoogleMaps API
-//=========================
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: new google.maps.LatLng(eventLat[0], eventLng[0]),
+    //mapTypeId: 'terrain'
+  });
 
-//Use new variables in GoogleMaps API and pull AJAX request
-//=========================
+  for (var i=0; i<3; i++){
+  latLng = new google.maps.LatLng(eventLat[i], eventLng[i]);
+  marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+  });
+  }
 
-//Display results on GoogleMap display (including current location)
-//=========================
+
+
+//================== Display current location on GoogleMap ====================
+
+
+  infoWindow = new google.maps.InfoWindow;
+
+  // HTML5 geolocation.
+  if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+
+    };
+
+    myLat = position.coords.latitude;
+    myLng = position.coords.longitude;
+
+    $("#myLat").html(myLat);
+    $("#myLng").html(myLng);
+    //======this shows My location on the map
+    
+    infoWindow.setPosition(pos);
+    infoWindow.setContent('Location found.');
+    infoWindow.open(map);
+    map.setCenter(pos);
+  }, function() {
+    handleLocationError(true, infoWindow, map.getCenter());
+  });
+  } else {
+  // when Browser doesn't support Geolocation
+  handleLocationError(false, infoWindow, map.getCenter());
+
+  }
+   
+}
+
+//Checking if information from the maps is available after x seconds 
+
+function getMapCoor() {
+  console.log("Event 1 lattitude = " + eventLat[0]);
+  console.log("Event 1 longitude = " + eventLng[0]);
+  console.log("My latitude = " + myLat);
+  console.log("My longitude = " + myLng);
+  }
+
+setTimeout(getMapCoor, 10000);
 
 //STRETCH GOAL
 //Implement Lyft fare estimator
@@ -47,13 +184,26 @@ $("#submit").on("click", function(event) {
 //=========================
 
 //Use variable in Lyft API and pull AJAX request
-//=========================
-var eventLat = 44.9735
-var eventLong = -93.2575
-var myLat = 44.973990
-var myLong = -93.227729
+//=========================DANI======================
+
+//Global variables from Dani
+
+
+//eventLat[0] = 44.9735; //- GoogleMap finds location of the event above using an array = eventLat[]
+//eventLng[0] = -93.2575; //- GoogleMap finds location of the event above using an array = myLat[]
+//myLat = 44.973990; //- GoogleMap finds My location above using the same variables = myLat
+//myLng = -93.227729; //- GoogleMap finds My location above using variable = myLng
+
 
 function displayLyft(){
+
+  //Checking if the information from the Map is used by the function displayLyft
+
+  console.log("Lyft Event 1 lattitude = " + eventLat[0]);
+  console.log("Lyft Event 1 longitude = " + eventLng[0]);
+  console.log("Lyft My latitude = " + myLat);
+  console.log("Lyft My longitude = " + myLng);
+
 	console.log("Display Lyft Function running");
   var OPTIONS = {
     scriptSrc: 'assets/lyft/dist/lyftWebButton.min.js',
@@ -63,12 +213,13 @@ function displayLyft(){
     location: {
       pickup: {
         latitude: myLat,
-        longitude: myLong,
+        longitude: myLng,
       }, 
       destination: {
-        latitude: eventLat,
-        longitude: eventLong,
+        latitude: eventLat[0],
+        longitude: eventLng[0],
       },
+
     },
     parentElement: document.getElementById('lyft-web-button-parent'),
     queryParams: {
@@ -89,11 +240,17 @@ function displayLyft(){
   }, c.src = t.scriptSrc, a.insertBefore(c, a.childNodes[0])
   }).call(this, OPTIONS);
 
- };
+};
+
+ setTimeout(displayLyft, 12000);
+
+ 
 
 //Display fare estimate to page
 //=======================
-displayLyft();
+
+
+
 
 
 
