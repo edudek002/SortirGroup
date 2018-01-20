@@ -6,23 +6,24 @@
 
 //Use variables in Eventful API and pull AJAX request for nearby events
 
-// // click function for AJAX Call
-// $("#submit").on("click", function(event) {
-//   // prevent event default behavior
-//   event.preventDefault();
-//   // store search input in variable
-//   var location = $("#location-input").val();
-//   // construct our URL
-//   var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location;
+// click function for AJAX Call
+$("#submit").on("click", function(event) {
+  // prevent event default behavior
+  event.preventDefault();
+  // store search input in variable
+  var location = $("#location-input").val();
+  // construct our URL
+  var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location;
 
-//   // queryURL using $ajax
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//   }).done(function(response) {
-//     console.log(JSON.parse(response))
-//     // $("#event-view").text(JSON.parse(response));
-//   });
+  // queryURL using $ajax
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).done(function(response) {
+    console.log(JSON.parse(response))
+    // $("#event-view").text(JSON.parse(response));
+  });
+});
 
 //=========================
 
