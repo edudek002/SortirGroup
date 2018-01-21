@@ -58,7 +58,11 @@ $("#find-event").on("click", function(event) {
 
   //alert(date);
 
-  // construct our URL using location and date determined by user
+  // construct our URL using location and date from Jquery drop-down menus
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
 
   var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location+ "&date="+ date + "&limit=10";
 
