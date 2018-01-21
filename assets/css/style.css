@@ -61,3 +61,9 @@ footer.page-footer {
   
 }
 
+#MSPimage {
+  opacity: 0.35;
+  filter: alpha(opacity=35);
+
+}
+
