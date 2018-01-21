@@ -94,6 +94,9 @@ p {
   background: lightblue;
 }
 
+#lyft-web-button-parent {
+  min-height: 100px;
+}
 footer.page-footer {
   margin: 0;
   text-align:center;
