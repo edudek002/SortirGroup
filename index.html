@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Sortir!</title>
+  <title>SORTIR!</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,9 +14,13 @@
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <!-- Sortir Logo #1-->
-      <a id="logo-container" href="#" class="brand-logo">Sortir</a>
+      <a id="logo-container" href="#Sortir!" class="brand-logo">SORTIR!</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="#location-input">Search</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#table">Event List</a></li>
+        <li><a href="#lyft-web-button-parent">Lyft</a></li>
+        <li><a href=".page-footer">Contact Us</a></li>
       </ul>
       <!-- Unnecessary Drop-down Menu? -->
       <!-- <ul id="nav-mobile" class="side-nav">
@@ -33,13 +37,37 @@
       <div class="container">
         <br><br>
       <!-- Sortir Logo #2-->
-        <h1 class="header center white-text text-darken-5">Sortir</h1>
+
+        <h1 class="header center white-text text-darken-5" id="Sortir!">SORTIR!</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Get Out and Roll out!!!</h5>
+          <h6 class="header col s12 light">Get Out & Roll Out</h6>
+        </div>
+
+        <div class="container i-container">
+          <div class="row center">
+            <p class="header col s12 light" id="how-it-works">How It Works</p>
+          </div>
+          <div class="row center">
+            <div class="col l4 s12 light">
+              <h5 class="header">01</h5>
+              <p class="instructions">Search for Events</p>
+              <p>Select your preferred city,<br> event date and type.</p>
+            </div>
+            <div class="col l4 s12 light">
+              <h5 class="header">02</h5>
+              <p class="instructions">Review Event Information</p>
+              <p>Review the events <br>that meet your preferences</p>
+            </div>
+            <div class="col l4 s12 light">
+              <h5 class="header">03</h5>
+              <p class="instructions">Request a Lyft!</p>
+              <p>Select what even you'll attend <br>and order a Lyft to get there</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/background1.jpg" alt="Minneapolis Skyline"></div>
+    <div class="parallax"><img id="MSPimage" src="assets/images/background1.jpg" alt="Minneapolis Skyline"></div>
   </div>
 
 <!--===============SEARCH FORM===========================-->
@@ -118,11 +146,9 @@
 
         <div id="map"></div>
 
-
        <!--  <div class="container">
           <div id="event-view"></div>
-        
-
+      
           <div id="eventDate">Date = </div>
 
           <div id="eventName">Name = </div>  
@@ -132,7 +158,7 @@
           <div id="myLat"></div>
 
           <div id="myLng"></div>
-
+          
         </div> -->
 
   <!--=================TABLE=============================== -->
@@ -142,7 +168,7 @@
       <div class="row">
         <div class="col s12 center">
           <!--Table will populate here-->
-           <table class="striped">
+           <table class="striped" id="table">
                   <thead>
                     <tr>
                         <th>Date</th>
@@ -176,9 +202,7 @@
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">here</h5>
-        </div>
+        <div class="row center"></div>
       </div>
     </div>
     <div class="parallax"><img src="assets/images/background3.jpg" alt="Spoon and Cherry"></div>
@@ -187,24 +211,24 @@
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12" id='lyft-web-button-parent'>
-<!--           <h5 class="white-text">Events info</h5>
-          <p class="grey-text text-lighten-4">Data here</p> -->
-
-
-        </div>
         <div class="col l3 s12">
-          <h5 class="white-text">more data??</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            
+            <li><a class="white-text" href="#Sortir!">Home</a></li>
+            <li><a class="white-text" href="#location-input">Search</a></li>
+            <li><a class="white-text" href="#map">Map</a></li>
+            <li><a class="white-text" href="#table">Event List</a></li>
+            <li><a class="white-text" href="#lyft-web-button-parent">Lyft</a></li>
+            <li><a class="white-text" href=".page-footer">Contact Us</a></li>
           </ul>
         </div>
+        <div class="col l6 s12" id="lyft-web-button-parent"></div>
         <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
+          <p>Contact</p>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-           
+            <li>Dani Carter</li>
+            <li>Edyta Dudek</li>
+            <li>Kayla Kotewall</li>
+            <li> Sam Mwangi </li>
           </ul>
         </div>
       </div>
@@ -216,19 +240,14 @@
     </div>
   </footer>
 
-
   <!--  Scripts-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApu_fsoWF0jqAI5bZVZ5hiWvibSNrFmms&callback=initMap"
-
     async defer></script>
-
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+  <script src="assets/javascript/app.js"></script>
   <script src="assets/javascript/materialize.js"></script>
   <script src="assets/javascript/init.js"></script>
-  <script src="assets/javascript/app.js"></script>
   </body>
 </html>
 
