@@ -34,9 +34,9 @@ var infoWindow;
 
 //====================================================
 //Use lodash for error handling
-//function parseLodash(str){
-//  return _.attempt(JSON.parse.bind(null, str));
-//}
+function parseLodash(str){
+ return _.attempt(JSON.parse.bind(null, str));
+}
 
 // click function for AJAX Call
 $("#find-event").on("click", function(event) {
@@ -50,7 +50,7 @@ $("#find-event").on("click", function(event) {
  
 
   // store search input in variable
-  var location = $("#location-input").val();
+  var location = $("#location-input").val().trim();
 
   var date = $("#date-input").val();
 
@@ -79,30 +79,30 @@ $("#find-event").on("click", function(event) {
       
       //Find Longitude and Latitude of the event
 
-      eventLat[i] = JSON.parse(response).events.event[i].latitude;
+      eventLat[i] = parseLodash(response).events.event[i].latitude;
       console.log("Lat of event " + [i+1] + " = " + eventLat[i]);
       eventLat.push(eventLat[i]);
 
-      eventLng[i] = JSON.parse(response).events.event[i].longitude;
+      eventLng[i] = parseLodash(response).events.event[i].longitude;
       console.log("Lng of event " + [i+1] + " = " + eventLng[i]);
       eventLng.push(eventLng[i]);
 
 
       //Print the Date of the the event 
 
-      dateSelector[i] = JSON.parse(response).events.event[i].start_time;
+      dateSelector[i] = parseLodash(response).events.event[i].start_time;
 
       $("#eventDate").text("Event date information for the table:  " + dateSelector[i]);
 
       //Print URL of the event
 
-      moreInfo[i]= JSON.parse(response).events.event[i].venue_url;
+      moreInfo[i]= parseLodash(response).events.event[i].venue_url;
 
       $("#moreInfo").text("Event URL information for the table:  " + moreInfo[i]);
 
       //Print the Name of the event
 
-      eventName[i]= JSON.parse(response).events.event[i].title;
+      eventName[i]= parseLodash(response).events.event[i].title;
 
       $("#eventName").text("Event name information for the table:  " + eventName[i]);
 
@@ -138,11 +138,7 @@ function initMap() {
   });
   }
 
-
-
 //================== Display current location on GoogleMap ====================
-
-
   infoWindow = new google.maps.InfoWindow;
 
   // HTML5 geolocation.
@@ -171,10 +167,8 @@ function initMap() {
   } else {
   // when Browser doesn't support Geolocation
   handleLocationError(false, infoWindow, map.getCenter());
-
-  }
-   
-}
+  };  
+};
 
 //Checking if information from the maps is available after x seconds 
 
@@ -183,12 +177,8 @@ function getMapCoor() {
   console.log("Event 1 longitude = " + eventLng[0]);
   console.log("My latitude = " + myLat);
   console.log("My longitude = " + myLng);
-  }
-
+  };
 setTimeout(getMapCoor, 12000);
-
-
-
 
 //STRETCH GOAL
 //Implement Lyft fare estimator
@@ -200,19 +190,8 @@ setTimeout(getMapCoor, 12000);
 //Use variable in Lyft API and pull AJAX request
 //=========================DANI======================
 
-//Global variables from Dani
-
-
-//eventLat[0] = 44.9735; //- GoogleMap finds location of the event above using an array = eventLat[]
-//eventLng[0] = -93.2575; //- GoogleMap finds location of the event above using an array = myLat[]
-//myLat = 44.973990; //- GoogleMap finds My location above using the same variables = myLat
-//myLng = -93.227729; //- GoogleMap finds My location above using variable = myLng
-
-
 function displayLyft(){
-
   //Checking if the information from the Map is used by the function displayLyft
-
   console.log("Lyft Event 1 lattitude = " + eventLat[0]);
   console.log("Lyft Event 1 longitude = " + eventLng[0]);
   console.log("Lyft My latitude = " + myLat);
@@ -233,7 +212,6 @@ function displayLyft(){
         latitude: eventLat[0],
         longitude: eventLng[0],
       },
-
     },
     parentElement: document.getElementById('lyft-web-button-parent'),
     queryParams: {
@@ -253,17 +231,10 @@ function displayLyft(){
     n[e] = n.lyftWebButton, t.objectName = e, n[e].initialize(t)
   }, c.src = t.scriptSrc, a.insertBefore(c, a.childNodes[0])
   }).call(this, OPTIONS);
-
 };
-
- setTimeout(displayLyft, 14000);
-
- 
-
-
 //Display fare estimate to page
 //=======================
-
+ setTimeout(displayLyft, 14000);
 
 
 
