@@ -36,106 +36,73 @@
         <div class="row center">
           <h5 class="header col s12 light">Get Out and Roll out!!!</h5>
         </div>
-          <!--API Search Form-->
-          <div class="container">
-            <div class="section">
-              <form class="col s12 m4">
-                <!-- City Search Input -->
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input placeholder="Placeholder" id="location-input" type="text" class="validate">
-                    <label for="location-input">Enter a City</label>
-                  </div>
-                </div>
-                <!-- Date Selector -->
-                <div class="row">
-                  <div class="input-field col s12">
-                    <select class= "Drop-down" id= "event-date">
-                      <option value="" disabled selected>Pick a date:</option>
-                      <option value="1">Today</option>
-                      <option value="2">Tomorrow</option>
-                      <option value= "3">This Week</option>
-                      <option value="4">This Weekend</option>
-                      <option value="5">Next Week</option>
-                      <option value="6">Next Month</option>
-                    </select>
-                    <label>date selection</label>
-                  </div>
-                </div>
-                <!-- Category Selector -->
-                <div class="row">
-                  <div class="input-field col s12">
-                      <select multiple>
-                        <option value="" disabled selected>Choose your categories:</option>
-                        <option value="1">Concert</option>
-                        <option value="2">Festival</option>
-                        <option value="3">Family</option>
-                        <option value="4">Art</option>
-                        <option value="5">Comedy</option>
-                        <option value="6">Gallery</option>
-                        <option value="7">Museum</option>
-                        <option value="8">Technology</option>
-                        <option value="9">Food</option>
-                        <option value="10">Sports</option>
-                        <option value="11">Movies</option>
-                        <option value="12">Nightlife</option>
-                        <option value="13">Outdoors</option>
-                        <option value="14">Science</option>
-                      </select>
-                      <label>category selection</label>
-                  </div>
-                </div>
-                <!-- Submit AJAX Button -->
-                <div class="row">
-                  <div class="btn-large waves-effect waves-light teal lighten-1" id="submit" type="submit" value="Event Search">Submit</div>
-                </div>
-              </form>
-            </div>
-          </div><!-- Div closes Search Form container-->
-        <br><br>
       </div>
     </div>
     <div class="parallax"><img src="assets/images/background1.jpg" alt="Minneapolis Skyline"></div>
   </div>
 
 
+  <!--API Search Form-->
   <div class="container">
     <div class="section">
+      <form class="col s12 m4">
+        <!-- City Search Input -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Placeholder" id="location-input" type="text" class="validate">
+            <label for="location-input">Enter a City</label>
+          </div>
+        </div>
+        <!-- Date Selector -->
+        <div class="row">
+          <div class="input-field col s12">
+            <select class= "Drop-down" id= "event-date">
+              <option value="" disabled selected>Pick a date:</option>
+              <option value="1">Today</option>
+              <option value="2">Tomorrow</option>
+              <option value= "3">This Week</option>
+              <option value="4">This Weekend</option>
+              <option value="5">Next Week</option>
+              <option value="6">Next Month</option>
+            </select>
+            <label>date selection</label>
+          </div>
+        </div>
+        <!-- Category Selector -->
+        <div class="row">
+          <div class="input-field col s12">
+              <select multiple>
+                <option value="" disabled selected>Choose your categories:</option>
+                <option value="1">Concert</option>
+                <option value="2">Festival</option>
+                <option value="3">Family</option>
+                <option value="4">Art</option>
+                <option value="5">Comedy</option>
+                <option value="6">Gallery</option>
+                <option value="7">Museum</option>
+                <option value="8">Technology</option>
+                <option value="9">Food</option>
+                <option value="10">Sports</option>
+                <option value="11">Movies</option>
+                <option value="12">Nightlife</option>
+                <option value="13">Outdoors</option>
+                <option value="14">Science</option>
+              </select>
+              <label>category selection</label>
+          </div>
+        </div>
+        <!-- Submit AJAX Button -->
+        <div class="row">
+          <div class="btn-large waves-effect waves-light teal lighten-1" id="submit" type="submit" value="Event Search">Submit</div>
+        </div>
+      </form>
+    </div>
+  </div><!-- Div closes Search Form container-->
+  <br><br>
 
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">event</i></h2>
-            <!--FORM GOES HERE-->
-              <div class="row">
-                  <form class="col s12 m4">
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Enter City</label>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <!--ZIP Search-->
-                 <nav>
-                  <div class="nav-wrapper">
-                    <form>
-                      <div class="input-field">
-                        <input id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                      </div>
-                    </form>
-                  </div>
-                </nav>
-                <br>
-
-<!-- search code -->
-<div id="map"></div>
-
-<div class="container">
+  <!-- search code -->
+  <div id="map"></div>
+  <div class="container">
       <div id="event-view"></div>
       
         <form id="search-form">
@@ -179,29 +146,6 @@
           </nav>
           </div>
         </div> -->
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">restaurant</i></h2>
-            <h5 class="center">FORM HERE</h5>
-              
-            <p class="light">table here </p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">theaters</i></h2>
-            <h5 class="center">Data</h5>
-
-            <p class="light">populate data here</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
