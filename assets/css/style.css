@@ -9,12 +9,49 @@ nav .brand-logo {
   color: #444;
 }
 
-p {
-  line-height: 2rem;
-}
-
 .button-collapse {
   color: #26a69a;
+}
+
+#MSPimage {
+  opacity: 1.25;
+  filter: alpha(opacity=125);
+}
+
+h1 {
+  font-size:150px;
+  margin:-10px;
+}
+
+h6 {
+  font-size: 20px;
+}
+
+.i-container {
+  background-color:teal;
+  padding:0px;
+}
+
+#how-it-works {
+  margin:0;
+  font-size: 35px;
+}
+
+h5 {
+  margin:0;
+  font-size:35px; 
+  text-decoration:underline;
+}
+
+.instructions {
+  font-size:18px;
+  font-weight:bold;
+}
+
+p {
+  font-size:16px;
+  line-height: 1;
+
 }
 
 .parallax-container {
@@ -23,7 +60,8 @@ p {
   height: auto;
   color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
+
+.parallax-container .section {
     width: 100%;
   }
 
@@ -50,20 +88,13 @@ p {
   font-size: inherit;
 }
 
-footer.page-footer {
-  margin: 0;
-}
-
 #map {
   height: 400px;
   width: 100%;
   background: lightblue;
-  
 }
 
-#MSPimage {
-  opacity: 0.35;
-  filter: alpha(opacity=35);
-
+footer.page-footer {
+  margin: 0;
+  text-align:center;
 }
-
