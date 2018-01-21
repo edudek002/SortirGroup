@@ -36,125 +36,90 @@
         <h1 class="header center white-text text-darken-5">Sortir</h1>
         <div class="row center">
           <h5 class="header col s12 light">Get Out and Roll out!!!</h5>
-        </div
-
-<!--===============SEARCH FORM===========================-->
-
-        <div class="container">
-          <div id="event-view">
-
-            <form class="col s12 m4" id="search-form">
-              <!-- City Search Input -->
-              
-              <div class="row">
-                <div class="input-field col s12">
-                  <label for="event-input">Enter a City</label>
-                  <input placeholder="Placeholder" id="location-input" type="text" class="validate">
-                </div>
-              </div>
-
-              <!-- Date Selector 
-                Attention: This code works for a dropdown menu: see "MapTest.html" file
-                BUT it doesn't work here-->
-
-              <div class="row">
-                
-                <label for="sel1">Enter date of the event</label>
-                <select class="form-control" id="date-input">
-                  <!--<option value="" disabled selected>Pick a date</option>-->
-                  <option value=Today>Today</option>
-                  <option value=ThisWeek>This Week</option>
-                  <option value=NextWeek>Next week</option>
-                 
-                </select> 
-                
-              </div>
-
-              <!-- Category Selector-->
-
-              <!--
-
-              <div class="row">
-                  <div class="input-field col s12">
-                      <select>
-                        <option value="" disabled selected>Select a category</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                      </select>
-                      <label>category-selection</label>
-                  </div>
-                </div>
-
-              
-              -->
-
-              <!-- Submit AJAX Button -->
-              <br>
-              <br>
-              <br>
-              <div class="row">
-                <div class="btn-large waves-effect waves-light teal lighten-1" id="find-event" type="submit" value="Event Search">Submit</div>
-              </div>
-            </form>
-          </div>
-        </div><!-- Div closes Search Form container-->
-
-<!--==============END OF SEARCH FORM======================-->
-
-        <br><br>
-
+        </div>
       </div>
     </div>
-    <div class="parallax" id="MPSimage"><img src="assets/images/background1.jpg" alt="Minneapolis Skyline"></div>
+    <div class="parallax"><img src="assets/images/background1.jpg" alt="Minneapolis Skyline"></div>
   </div>
 
-<!--=========== END OF LARGE BANNER #1 with image========== -->
-
+<!--===============SEARCH FORM===========================-->
   <!--API Search Form-->
   <div class="container">
-    <div class="section">
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">event</i></h2>
+    <div id="event-view">
+      <form class="col s12 m4" id="search-form">
+        <!-- City Search Input -->
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="city or zip code" id="location-input" type="text" class="validate">
+            <label for="location-input">Enter a City</label>
           </div>
         </div>
+        <!-- Date Selector -->
+        <div class="row">
+          <div class="input-field col s12">
+            <select class= "Drop-down" id= "event-date">
+              <option value="" disabled selected>Pick a date:</option>
+              <option value="1">Today</option>
+              <option value="2">Tomorrow</option>
+              <option value= "3">This Week</option>
+              <option value="4">This Weekend</option>
+              <option value="5">Next Week</option>
+              <option value="6">Next Month</option>
+            </select>
+            <label>date selection</label>
+          </div>
+        </div>
+        <!-- Category Selector -->
+        <div class="row">
+          <div class="input-field col s12">
+              <select multiple>
+                <option value="" disabled selected>Choose your categories:</option>
+                <option value="1">Concert</option>
+                <option value="2">Festival</option>
+                <option value="3">Family</option>
+                <option value="4">Art</option>
+                <option value="5">Comedy</option>
+                <option value="6">Gallery</option>
+                <option value="7">Museum</option>
+                <option value="8">Technology</option>
+                <option value="9">Food</option>
+                <option value="10">Sports</option>
+                <option value="11">Movies</option>
+                <option value="12">Nightlife</option>
+                <option value="13">Outdoors</option>
+                <option value="14">Science</option>
+              </select>
+              <label>category selection</label>
+          </div>
+        </div>
+        <!-- Submit AJAX Button -->
+        <div class="row">
+          <div class="btn-large waves-effect waves-light teal lighten-1" id="find-event" type="submit" value="Event Search">Submit</div>
+        </div>
+      </form>
+    </div>
+  </div><!-- Div closes Search Form container-->
+  <br><br>
 
-            <!--FORM GOES HERE ?????-->
-            <!--
-              <div class="row">
-                <form class="col s12 m4">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <textarea id="textarea1" class="materialize-textarea"></textarea>
-                      <label for="textarea1">Enter City</label>
-                    </div>
-                  </div>
-                </form>
-              
-              </div>
-                
-                 <nav>
-                  <div class="nav-wrapper">
-                    <form>
-                      <div class="input-field">
-                        <input id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                      </div>
-                    </form>
-                  </div>
-                </nav>
-                <br>
-              -->
-<!--=================MAP=============================== -->
+<!-- LARGE BANNER #2 with image -->
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/images/background2.jpg" alt="Vikings Players"></div>
+  </div>
+
+  <!--=================MAP=============================== -->
 
         <div id="map"></div>
 
 
-        <div class="container">
+       <!--  <div class="container">
           <div id="event-view"></div>
         
 
@@ -168,86 +133,45 @@
 
           <div id="myLng"></div>
 
-        </div>
-
-    <!-- search CODE ?????-->
-
-          <!--Date Search-->
-         <!--  <input type="text" class="datepicker">
-          
-           <nav>
-            <div class="nav-wrapper">
-              <form>
-                <div class="input-field">
-                  <input id="search" type="search" required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>
-            </div>
-          </nav>
-          </div>
         </div> -->
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">restaurant</i></h2>
-            <h5 class="center">FORM HERE</h5>
-              
-            <p class="light">table here </p>
-          </div>
-        </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">theaters</i></h2>
-            <h5 class="center">Data</h5>
-
-            <p class="light">populate data here</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light"></h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/images/background2.jpg" alt="Vikings Players"></div>
-  </div>
+  <!--=================TABLE=============================== -->
 
   <div class="container">
     <div class="section">
-
       <div class="row">
         <div class="col s12 center">
           <!--Table will populate here-->
-                 <table class="striped" id="event-table">
-                        <thead>
-                          <tr>
-                              <th>Date</th>
-                              <th>Time</th>
-                              <th>Name of Event</th>
-                              <th>URL</th>
-                              <th>Price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                  </table>
+           <table class="striped">
+                  <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Location</th>
+                        <th>Distance</th>
+                        <th>Price</th>
+                    </tr>
+                  </thead>
 
-          <p class="left-align light">More Data here</p>
-        </div>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+            </table>
+          </div>
       </div>
-
     </div>
   </div>
 
+<!-- LARGE BANNER #3 with image -->
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
