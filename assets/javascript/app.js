@@ -34,9 +34,9 @@ var infoWindow;
 
 //====================================================
 //Use lodash for error handling
-function parseLodash(str){
-  return _.attempt(JSON.parse.bind(null, str));
-}
+//function parseLodash(str){
+//  return _.attempt(JSON.parse.bind(null, str));
+//}
 
 // click function for AJAX Call
 $("#find-event").on("click", function(event) {
@@ -73,38 +73,41 @@ $("#find-event").on("click", function(event) {
     method: "GET"
   }).done(function(response) {
 
-    for (var i=0; i<3; i++){
+    for (var i=0; i<5; i++){
 
       console.log(JSON.parse(response));
       
       //Find Longitude and Latitude of the event
 
-      eventLat[i] = parseLodash(response).events.event[i].latitude;
+      eventLat[i] = JSON.parse(response).events.event[i].latitude;
       console.log("Lat of event " + [i+1] + " = " + eventLat[i]);
       eventLat.push(eventLat[i]);
 
-      eventLng[i] = parseLodash(response).events.event[i].longitude;
+      eventLng[i] = JSON.parse(response).events.event[i].longitude;
       console.log("Lng of event " + [i+1] + " = " + eventLng[i]);
       eventLng.push(eventLng[i]);
 
 
       //Print the Date of the the event 
 
-      dateSelector[i] = parseLodash(response).events.event[i].start_time;
+      dateSelector[i] = JSON.parse(response).events.event[i].start_time;
 
-      $("#eventDate").text(dateSelector[i]);
+      $("#eventDate").text("Event date information for the table:  " + dateSelector[i]);
 
       //Print URL of the event
 
-      moreInfo[i]= parseLodash(response).events.event[i].venue_url;
+      moreInfo[i]= JSON.parse(response).events.event[i].venue_url;
 
-      $("#moreInfo").text(moreInfo[i]);
+      $("#moreInfo").text("Event URL information for the table:  " + moreInfo[i]);
 
       //Print the Name of the event
 
-      eventName[i]= parseLodash(response).events.event[i].title;
+      eventName[i]= JSON.parse(response).events.event[i].title;
 
-      $("#eventName").text(eventName[i]);
+      $("#eventName").text("Event name information for the table:  " + eventName[i]);
+
+      $("#event-table > tbody").append("<tr><td>" + dateSelector[i] + "</td><td>" + dateSelector[i] + "</td><td>" +
+    + "</td><td>" + eventName[i] + "</td><td>" + moreInfo[i]+"</td><td>" + "hello" + "</td></tr>");
 
     }
 
@@ -154,8 +157,8 @@ function initMap() {
     myLat = position.coords.latitude;
     myLng = position.coords.longitude;
 
-    $("#myLat").html(myLat);
-    $("#myLng").html(myLng);
+    $("#myLat").html("My location latitude: " + myLat);
+    $("#myLng").html("My location longitude: " + myLng);
     //======this shows My location on the map
     
     infoWindow.setPosition(pos);
@@ -182,7 +185,10 @@ function getMapCoor() {
   console.log("My longitude = " + myLng);
   }
 
-setTimeout(getMapCoor, 10000);
+setTimeout(getMapCoor, 12000);
+
+
+
 
 //STRETCH GOAL
 //Implement Lyft fare estimator
@@ -250,9 +256,10 @@ function displayLyft(){
 
 };
 
- setTimeout(displayLyft, 12000);
+ setTimeout(displayLyft, 14000);
 
  
+
 
 //Display fare estimate to page
 //=======================
