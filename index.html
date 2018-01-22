@@ -72,19 +72,18 @@
 
 <!--===============SEARCH FORM===========================-->
   <!--API Search Form-->
-  <div class="container">
+
+  <div class="container z-depth-3">
     <div id="event-view">
       <form class="col s12 m4" id="search-form">
         <!-- City Search Input -->
         <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="city or zip code" id="location-input" type="text" class="validate">
+          <div class="input-field col s4 ">
+            <input id="location-input" type="text" class="validate">
             <label for="location-input">Enter a City</label>
           </div>
-        </div>
         <!-- Date Selector -->
-        <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s4">
             <select class= "Drop-down" id= "event-date">
               <option value="" disabled selected>Select a date:</option>
               <option value="Today">Today</option>
@@ -93,14 +92,12 @@
               <option value="This Weekend">This Weekend</option>
               <option value="Next Week">Next Week</option>
             </select>
-            <label>Select a Date</label>
+            <label>date selection</label>
           </div>
-        </div>
         <!-- Category Selector -->
-        <div class="row">
-          <div class="input-field col s12">
-              <select multiple class="Drop-down">
-                <option value="" disabled selected>Select your categories:</option>
+          <div class="input-field col s4">
+              <select multiple>
+                <option value="" disabled selected>Choose your categories:</option>
                 <option value="1">Concert</option>
                 <option value="2">Festival</option>
                 <option value="3">Family</option>
@@ -116,16 +113,17 @@
                 <option value="13">Outdoors</option>
                 <option value="14">Science</option>
               </select>
-              <label>Select a Category</label>
+              <label>category selection</label>
           </div>
-        </div>
-        <!-- Submit AJAX Button -->
-        <div class="row">
-          <div class="btn-large waves-effect waves-light teal lighten-1" id="find-event" type="submit" value="Event Search">Submit</div>
-        </div>
+        </div> <!--Row-->
+        <!-- </div> --> 
       </form>
     </div>
-  </div><!-- Div closes Search Form container-->
+  </div><!-- Div closes Search Form container--> 
+        <!-- Submit AJAX Button -->
+        <div class="row center-align">
+          <div class="btn-large waves-effect waves-light teal lighten-1" id="find-event" type="submit" value="Event Search">Submit</div>
+        </div>
   <br><br>
 
 <!-- LARGE BANNER #2 with image -->
