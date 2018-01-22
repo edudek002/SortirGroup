@@ -1,9 +1,3 @@
-//PSUEDOCODE
-//=========================
-
-//===================EDYTA==========================
-
-//Global variables - Edyta
 
 var eventLat=[];
 var eventLng=[];
@@ -19,54 +13,39 @@ var myLng;
 var infoWindow;
 
 
-//Grab search items from forms and save a variables
-//====================================================
-
-//Use variables in Eventful API 
-
-//AND - Pull AJAX request for nearby events
-
-//AND - Display responses from Eventful in table 
-
-//AND - Save information from table as new variables to use in GoogleMaps API 
-
-//AND - Use new variables in GoogleMaps API 
-
-//====================================================
-//Use lodash for error handling
+//================== Lodash Error Handling ==================================
 function parseLodash(str){
  return _.attempt(JSON.parse.bind(null, str));
 }
 
-// click function for AJAX Call
+//================== on-click AJAX Call ==================================
 $("#find-event").on("click", function(event) {
-
   // prevent event default behavior
   event.preventDefault();
-
   //wait x seconds until the data from Ajax loads and then show the map
-
   setTimeout(initMap, 4000);
  
 
-  // store search input in variable
-  var location = $("#location-input").val().trim();
+//=============== Search Form Inputs  ============================
+var location = $("#location-input").val().trim();
+console.log(location)
 
-  var date = $("#date-input").val();
+var date = $("#event-date").val();
+console.log(date)
 
-  //check if the date uploads correctly
+var category = $("#event-category").val();
+console.log(category)
 
-  //alert(date);
+ 
+//============ Search Form Jquery Menus  =========================
+$(document).ready(function() {
+  $('select').material_select();
+});
 
-  // construct our URL using location and date from Jquery drop-down menus
 
-  $(document).ready(function() {
-    $('select').material_select();
-  });
+// ================  queryURL using $ajax ======================
 
-  var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location+ "&date="+ date + "&limit=10";
-
-  // queryURL using $ajax
+var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events/search?app_key=54CPdHQQ4wTp4fM7&location=" + location+ "&date="+ date + "&category" + category + "&limit=10";
 
   $.ajax({
     url: queryURL,
@@ -80,28 +59,25 @@ $("#find-event").on("click", function(event) {
       //Find Longitude and Latitude of the event
 
       eventLat[i] = parseLodash(response).events.event[i].latitude;
-      console.log("Lat of event " + [i+1] + " = " + eventLat[i]);
+      // console.log("Lat of event " + [i+1] + " = " + eventLat[i]);
       eventLat.push(eventLat[i]);
 
       eventLng[i] = parseLodash(response).events.event[i].longitude;
-      console.log("Lng of event " + [i+1] + " = " + eventLng[i]);
+      // console.log("Lng of event " + [i+1] + " = " + eventLng[i]);
       eventLng.push(eventLng[i]);
 
 
-      //Print the Date of the the event 
+      //================ Table Population ===============================
 
+      //Print date
       dateSelector[i] = parseLodash(response).events.event[i].start_time;
-
       $("#eventDate").text("Event date information for the table:  " + dateSelector[i]);
 
-      //Print URL of the event
-
+      //Print URL of the event -CHANGE TO LINK?
       moreInfo[i]= parseLodash(response).events.event[i].venue_url;
-
       $("#moreInfo").text("Event URL information for the table:  " + moreInfo[i]);
 
-      //Print the Name of the event
-
+      //Event Name
       eventName[i]= parseLodash(response).events.event[i].title;
 
       $("#eventName").text("Event name information for the table:  " + eventName[i]);
@@ -115,8 +91,8 @@ $("#find-event").on("click", function(event) {
 
   //print arrays of Lattitude and Longitude
 
-  console.log("Latitude array = " + eventLat);
-  console.log("Longitude array = " + eventLng);
+  // console.log("Latitude array = " + eventLat);
+  // console.log("Longitude array = " + eventLng);
 
 });
 
@@ -173,31 +149,24 @@ function initMap() {
 //Checking if information from the maps is available after x seconds 
 
 function getMapCoor() {
-  console.log("Event 1 lattitude = " + eventLat[0]);
-  console.log("Event 1 longitude = " + eventLng[0]);
-  console.log("My latitude = " + myLat);
-  console.log("My longitude = " + myLng);
+  // console.log("Event 1 lattitude = " + eventLat[0]);
+  // console.log("Event 1 longitude = " + eventLng[0]);
+  // console.log("My latitude = " + myLat);
+  // console.log("My longitude = " + myLng);
   };
 setTimeout(getMapCoor, 12000);
 
-//STRETCH GOAL
-//Implement Lyft fare estimator
-//=========================
 
-//Save selected event as a new variable
-//=========================
-
-//Use variable in Lyft API and pull AJAX request
-//=========================DANI======================
+//===================  Lyft API and AJAX request ========================
 
 function displayLyft(){
   //Checking if the information from the Map is used by the function displayLyft
-  console.log("Lyft Event 1 lattitude = " + eventLat[0]);
-  console.log("Lyft Event 1 longitude = " + eventLng[0]);
-  console.log("Lyft My latitude = " + myLat);
-  console.log("Lyft My longitude = " + myLng);
+  // console.log("Lyft Event 1 lattitude = " + eventLat[0]);
+  // console.log("Lyft Event 1 longitude = " + eventLng[0]);
+  // console.log("Lyft My latitude = " + myLat);
+  // console.log("Lyft My longitude = " + myLng);
 
-	console.log("Display Lyft Function running");
+	// console.log("Display Lyft Function running");
   var OPTIONS = {
     scriptSrc: 'assets/lyft/dist/lyftWebButton.min.js',
     namespace: '',
@@ -237,8 +206,31 @@ function displayLyft(){
  setTimeout(displayLyft, 14000);
 
 
+// ===============  Old Pseudocode Repo  =================
+
+//Grab search items from forms and save a variables
+//====================================================
+
+//Use variables in Eventful API 
+
+//AND - Pull AJAX request for nearby events
+
+//AND - Display responses from Eventful in table 
+
+//AND - Save information from table as new variables to use in GoogleMaps API 
+
+//AND - Use new variables in GoogleMaps API 
+
+//Save selected event as a new variable
+
+// construct our URL using location and date from Jquery drop-down menus
 
 
 
+
+
+
+//STRETCH GOAL
+//Implement Lyft fare estimator
 
 
