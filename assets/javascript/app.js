@@ -31,10 +31,10 @@ var location = $("#location-input").val().trim();
 console.log(location)
 
 var date = $("#event-date").val();
-console.log(date)
+// console.log(date)
 
 var category = $("#event-category").val();
-console.log(category)
+// console.log(category)
 
  
 //============ Search Form Jquery Menus  =========================
