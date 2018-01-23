@@ -1,4 +1,3 @@
-
 var eventLat=[];
 var eventLng=[];
 var dateSelector=[];
@@ -11,10 +10,26 @@ var marker;
 var myLat;
 var myLng;
 var infoWindow;
-//================== Lodash Error Handling ==================================
-function parseLodash(str){
- return _.attempt(JSON.parse.bind(null, str));
+var pickedEvent=[];
+var pickedLat;
+var pickedLng;
+
+function clickMyEvent(){
+
+  $(".myEvent").on("click", function() {
+      pickedLat = ($(this).attr("data-LatValue"));
+      pickedLng = ($(this).attr("data-LngValue"));
+      alert("My event latitude: " + pickedLat + "My event longitude: " + pickedLng);
+  });
 }
+
+
+
+
+//================== Lodash Error Handling ==================================
+//function parseLodash(str){
+//return _.attempt(JSON.parse.bind(null, str));
+//}
 //================== on-click AJAX Call ==================================
 $("#find-event").on("click", function(event) {
   // prevent event default behavior
@@ -23,7 +38,7 @@ $("#find-event").on("click", function(event) {
   setTimeout(initMap, 4000);
 //=============== Search Form Inputs  ============================
 var location = $("#location-input").val().trim();
-console.log(location)
+console.log(location);
 var date = $("#event-date").val();
 // console.log(date)
 var category = $("#event-category").val();
@@ -44,25 +59,36 @@ var queryURL = "https://cors-anywhere.herokuapp.com/api.eventful.com/json/events
     for (var i=0; i<5; i++){
       console.log(JSON.parse(response));
       //Find Longitude and Latitude of the event
-      eventLat[i] = parseLodash(response).events.event[i].latitude;
+      eventLat[i] = JSON.parse(response).events.event[i].latitude;
       // console.log("Lat of event " + [i+1] + " = " + eventLat[i]);
       eventLat.push(eventLat[i]);
-      eventLng[i] = parseLodash(response).events.event[i].longitude;
+      eventLng[i] = JSON.parse(response).events.event[i].longitude;
       // console.log("Lng of event " + [i+1] + " = " + eventLng[i]);
       eventLng.push(eventLng[i]);
       //================ Table Population ===============================
       //Print date
-      dateSelector[i] = parseLodash(response).events.event[i].start_time;
-      $("#eventDate").text("Event date information for the table:  " + dateSelector[i]);
+      dateSelector[i] = JSON.parse(response).events.event[i].start_time;
+      //$("#eventDate").text("Event date information for the table:  " + dateSelector[i]);
       //Print URL of the event -CHANGE TO LINK?
-      moreInfo[i]= parseLodash(response).events.event[i].venue_url;
-      $("#moreInfo").text("Event URL information for the table:  " + moreInfo[i]);
+      moreInfo[i]= JSON.parse(response).events.event[i].venue_url;
+      //$("#moreInfo").text("Event URL information for the table:  " + moreInfo[i]);
       //Event Name
-      eventName[i]= parseLodash(response).events.event[i].title;
-      $("#eventName").text("Event name information for the table:  " + eventName[i]);
-      $("#event-table > tbody").append("<tr><td>" + dateSelector[i] + "</td><td>" + dateSelector[i] + "</td><td>" +
+      eventName[i]= JSON.parse(response).events.event[i].title;
+      //$("#eventName").text("Event name information for the table:  " + eventName[i]);
+      
+      $("#event-table > tbody").append("<tr><td>" + [i+1] + "</td><td>" + dateSelector[i] + "</td><td>" +
     + "</td><td>" + eventName[i] + "</td><td>" + moreInfo[i]+"</td><td>" + "hello" + "</td></tr>");
+    
+
+      pickedEvent[i] = $("<button>" );    
+      pickedEvent[i].addClass("myEvent");
+      pickedEvent[i].text("Go to #" + (i+1) + " event");
+      pickedEvent[i].attr("data-LatValue", eventLat[i]);
+      pickedEvent[i].attr("data-LngValue", eventLng[i]);
+      $("#events").append(pickedEvent[i]);
     };
+
+    clickMyEvent();
   });
   //print arrays of Lattitude and Longitude
   // console.log("Latitude array = " + eventLat);
@@ -76,7 +102,7 @@ function initMap() {
     center: new google.maps.LatLng(eventLat[0], eventLng[0]),
     //mapTypeId: 'terrain'
   });
-  for (var i=0; i<3; i++){
+  for (var i=0; i<5; i++){
   latLng = new google.maps.LatLng(eventLat[i], eventLng[i]);
   marker = new google.maps.Marker({
       position: latLng,
@@ -111,12 +137,12 @@ function initMap() {
 };
 //Checking if information from the maps is available after x seconds 
 function getMapCoor() {
-  // console.log("Event 1 lattitude = " + eventLat[0]);
-  // console.log("Event 1 longitude = " + eventLng[0]);
-  // console.log("My latitude = " + myLat);
-  // console.log("My longitude = " + myLng);
+  console.log("My event lattitude = " + pickedLat);
+  console.log("My event longitude = " + pickedLng);
+  console.log("My latitude = " + myLat);
+  console.log("My longitude = " + myLng);
   };
-setTimeout(getMapCoor, 12000);
+setTimeout(getMapCoor, 20000);
 
 //===================  Lyft API and AJAX request ========================
 function displayLyft(){
@@ -131,8 +157,8 @@ function displayLyft(){
         longitude: myLng,
       }, 
       destination: {
-        latitude: eventLat[0],
-        longitude: eventLng[0],
+        latitude: pickedLat,
+        longitude: pickedLng,
       },
     },
     parentElement: document.getElementById('lyft-web-button-parent'),
@@ -156,6 +182,7 @@ function displayLyft(){
 };
 //Display fare estimate to page
 //=======================
- setTimeout(displayLyft, 14000);
+ setTimeout(displayLyft, 22000);
+
 
 

@@ -89,7 +89,7 @@ p {
   font-size: inherit;
 }
 
-.
+
 
 #map {
   height: 400px;
@@ -102,9 +102,24 @@ p {
 }
 footer.page-footer {
   margin: 0;
-  text-align:center;
+  text-align:left;
 }
 
 .container{
   margin-top:10px;
+}
+
+#events {
+  
+  color: teal;
+  
+  z-index: 1;
+}
+
+
+
+.myEvent {
+  width: 250px;
+  height: 50px;
+  
 }
